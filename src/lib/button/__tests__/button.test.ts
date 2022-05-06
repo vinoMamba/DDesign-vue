@@ -35,4 +35,12 @@ describe("Button", () => {
     });
     expect(await wrapper.find("button").trigger("click")).toBeFalsy();
   });
+  it("can set size prop", () => {
+    const wrapper = mount(DButton, {
+      props: {
+        size: "large",
+      },
+    });
+    expect(wrapper.classes()).toContain("dtd-button-large");
+  });
 });

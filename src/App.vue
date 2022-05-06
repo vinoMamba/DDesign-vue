@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import { DButton } from "./lib";
+import { ref } from "vue";
+const loading = ref(false);
 function onclick() {
-  console.log("click");
+  loading.value = true;
+  setTimeout(() => {
+    loading.value = false;
+  }, 3000);
 }
 </script>
 
@@ -19,6 +24,10 @@ function onclick() {
   <d-button type="primary" size="small">Primary Button</d-button>
   <d-button>Default Button</d-button>
   <d-button type="danger" size="large">Danger Button</d-button>
+  <p>DButton loading</p>
+  <d-button :loading="loading" @click="onclick" type="primary"
+    >Primary Button</d-button
+  >
 </template>
 
 <style></style>
